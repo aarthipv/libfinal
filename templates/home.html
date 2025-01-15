@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Home</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f1e1, #c49a6c); /* Light brown gradient */
+            background-attachment: fixed;
+            color: #4a3f39; /* Dark brown text */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 30px 0;
+            text-align: center;
+            width: 100%;
+            border-bottom: 2px solid #6b4f3b; /* Dark brown border */
+        }
+
+        header h1 {
+            font-size: 4em;
+            color: #6b4f3b; /* Dark brown */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #6b4f3b; /* Dark brown links */
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #a17f5b; /* Lighter brown on hover */
+        }
+
+        .intro {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.85); /* Light white background */
+            border-radius: 10px;
+            color: #4a3f39; /* Dark brown text */
+        }
+
+        .intro h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #6b4f3b; /* Dark brown title */
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #6b4f3b; /* Dark brown text */
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.8); /* Light white background */
+            color: #4a3f39; /* Dark brown footer text */
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Library Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="/librarian_login">Librarian Login</a></li>
+                <li><a href="/user_login">User Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <h2>About Our System</h2>
+        <p>
+            The Library Management System allows librarians to manage books, users, and handle overdue notifications. Users can search for, borrow, and return books easily, making the library experience smooth and efficient for all.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
+</body>
+</html>

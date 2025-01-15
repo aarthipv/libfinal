@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Librarian Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f7f3f1, #c2b09b); /* Light brown gradient background */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #7c5c4f; /* Warm brown */
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out; /* Animation for the title */
+        }
+
+        .table-container {
+            background: white; /* White background for table container */
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            animation: slideIn 1s ease-out; /* Animation for the table */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #7c5c4f; /* Warm brown borders */
+        }
+
+        table th {
+            background-color: #7c5c4f; /* Warm brown for header */
+            color: white;
+        }
+
+        th {
+            background-color: #7c5c4f; /* Dark brown header */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4e1c1; /* Light brown for even rows */
+        }
+
+        tr:hover {
+            background-color: #a2885f; /* Darker brown on hover */
+            color: white;
+        }
+
+        a {
+            color: #7c5c4f;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #7c5c4f; /* Warm brown */
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .table-container {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            table {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Manage Users</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Books Borrowed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.user_id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% if user.borrowed_books %}
+                                <ul>
+                                    {% for book in user.borrowed_books %}
+                                        <li>{{ book.title }} by {{ book.author }} (Due Date: {{ book.due_date }})</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                No books borrowed.
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back-link">
+        <a href="/librarian_dashboard">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

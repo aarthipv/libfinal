@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/user-bg.png') no-repeat center center/cover, 
+                        linear-gradient(135deg, #d6a1e3, #f0d4cd); /* Soft pastel gradient */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f7f3f1; /* Light neutral background */
+        }
+
+        header {
+            background-color: #fff; /* White background */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #7c5c4f; /* Warm neutral brown for title */
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.85); /* Light semi-transparent white background */
+            padding: 35px;
+            border-radius: 20px; /* Rounded corners for a softer look */
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-form h2 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 18px;
+            color: #7a5c62; /* Soft muted mauve for sub-heading */
+            font-family: 'Georgia', serif;
+        }
+
+        .login-form label {
+            font-size: 1.1em;
+            color: #7a5c62;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 18px;
+            border: 2px solid #d8c6bb; /* Soft beige border */
+            border-radius: 12px; /* More rounded corners */
+            background: #fff;
+            font-size: 1.1em;
+            color: #4a3f39;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .login-form input:focus {
+            border-color: #a2885f; /* Subtle focus effect */
+            outline: none;
+            box-shadow: 0 0 8px rgba(162, 136, 95, 0.6);
+        }
+
+        .login-form button {
+            background: linear-gradient(135deg, #d8c6bb, #a2885f); /* Soft gradient button */
+            color: #4a3f39;
+            padding: 16px;
+            border: none;
+            width: 100%;
+            font-size: 1.2em;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+
+        .login-form button:hover {
+            background: linear-gradient(135deg, #a2885f, #8c715f); /* Darker gradient on hover */
+        }
+
+        .login-form p {
+            text-align: center;
+            color: #6f5e55;
+            margin-top: 12px;
+            font-size: 1.1em;
+        }
+
+        .login-form a {
+            color: #a2885f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-form a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #4a3f39;
+            font-size: 1.1em;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .login-form {
+                padding: 25px;
+                max-width: 350px;
+            }
+
+            .login-form h2 {
+                font-size: 2em;
+            }
+
+            .login-form button {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+
+    <div class="login-form">
+        <h2>User Login</h2>
+        <form action="/user_login" method="POST">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/register">Register here</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
+
+</body>
+</html>

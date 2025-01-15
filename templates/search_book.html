@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Books</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/end.png') no-repeat center center/cover,
+                        linear-gradient(135deg, #6e7c9f, #4b5563); /* Background image with gradient */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7f3f1; /* Light neutral background */
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #7c5c4f; /* Warm neutral brown */
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8); /* Light white form background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form input {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            border: 1px solid #7c5c4f;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        form button {
+            padding: 12px 30px;
+            font-size: 1.2em;
+            background-color: #7c5c4f; /* Warm neutral brown */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #a2885f; /* Subtle golden brown */
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #7c5c4f;
+        }
+
+        /* Transparent background for table container */
+        .table-container {
+            background: rgba(255, 255, 255, 0.8); /* Light background */
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            animation: slideIn 1s ease-out; /* Animation for the table */
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #7c5c4f; /* Warm neutral brown border */
+        }
+
+        table th{
+            background-color: #7c5c4f; /* Warm brown */
+            color: white;
+        }
+
+        th {
+            background-color: #6e7c9f; /* Soft muted blue-gray */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f3f1; /* Light background */
+        }
+
+        tr:hover {
+            background-color: #a2885f; /* Subtle golden brown */
+            color: white;
+        }
+
+        a {
+            color: #7c5c4f; /* Warm brown */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            form {
+                padding: 20px;
+                width: 90%;
+            }
+
+            table {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search Books</h1>
+
+    <form method="POST">
+        <input type="text" name="search_query" placeholder="Search by title or author" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Search Results:</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book[0] }}</td>
+                        <td>{{ book[1] }}</td>
+                        <td>{{ book[2] }}</td>
+                        <td>{{ 'Yes' if book[4] > 0 else 'No' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/user_dashboard">Back to Dashboard</a>
+
+</body>
+</html>

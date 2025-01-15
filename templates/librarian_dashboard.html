@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f1e1, #c49a6c); /* Light brown gradient background */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brown text */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.85); /* Light white background for header */
+            color: #6b4f3b; /* Dark brown for header text */
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 2px solid #6b4f3b;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #6b4f3b; /* Dark brown */
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background: rgba(255, 255, 255, 0.9); /* Light white background for nav */
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #6b4f3b; /* Dark brown links */
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a17f5b; /* Lighter brown on hover */
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.85); /* Light background for main section */
+            margin-top: 30px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #6b4f3b; /* Dark brown for title */
+        }
+
+        main p {
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            color: #6b4f3b; /* Dark brown text */
+        }
+
+        /* Button/Links in Main Section */
+        .dashboard-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .dashboard-buttons a {
+            background: #f9d342; /* Soft gold for buttons */
+            padding: 15px 30px;
+            color: rgb(0, 0, 0);
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .dashboard-buttons a:hover {
+            background: #a17f5b; /* Lighter brown on hover */
+        }
+
+        /* Logout Link Styling */
+        .logout-link {
+            color: #6b4f3b; /* Dark brown for logout */
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
+            color: #a17f5b; /* Lighter brown on hover */
+        }
+
+        /* Footer Styling */
+        footer {
+            background: rgba(255, 255, 255, 0.9); /* Light white background for footer */
+            color: #4a3f39; /* Soft brown footer text */
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 1em;
+                margin: 0 15px;
+            }
+
+            main {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .dashboard-buttons {
+                flex-direction: column;
+            }
+
+            .dashboard-buttons a {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+
+    <main>
+        <h1>Welcome, {{ name }}</h1>
+        <p>Manage your library efficiently with the available tools. Use the options below to manage books, users, and more.</p>
+
+        <!-- Buttons for Different Actions -->
+        <div class="dashboard-buttons">
+            <a href="/add_book">Add New Book</a>
+            <a href="/remove_book">Remove Book</a>
+            <a href="/manage_users">Manage Users</a>
+            <a href="/list_books">View All Books</a>
+        </div>
+
+        <!-- Logout Link -->
+        <a href="/logout" class="logout-link">Logout</a>
+    </main>
+
+    <footer>
+        <p>©️ 2024 Library Management System</p>
+    </footer>
+
+</body>
+</html>

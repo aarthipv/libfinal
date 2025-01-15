@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/end.png') no-repeat center center/cover,
+                        linear-gradient(135deg, #6e7c9f, #4b5563); /* Background image with gradient */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7f3f1; /* Light neutral background */
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #7c5c4f; /* Warm neutral brown */
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8); /* Light white form background */
+            padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+            text-align: center;
+        }
+
+        form label {
+            display: block;
+            font-size: 1.2em;
+            color: #7c5c4f; /* Warm brown */
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        form select, form button {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            border: 1px solid #7c5c4f; /* Warm brown */
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        form button {
+            background-color: #7c5c4f; /* Warm neutral brown */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #a2885f; /* Subtle golden brown */
+        }
+
+        .back-link {
+            color: #7c5c4f; /* Warm brown */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+
+            form select, form button {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Return a Book</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    {% if borrowed_books %}
+        <form method="POST">
+            <label for="book_id">Select Book to Return:</label>
+            <select name="book_id" required>
+                {% for book in borrowed_books %}
+                    <option value="{{ book[1] }}">{{ book[2] }} by {{ book[3] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="borrow_id">Borrow ID:</label>
+            <select name="borrow_id" required>
+                {% for book in borrowed_books %}
+                    <option value="{{ book[0] }}">{{ book[0] }}</option>
+                {% endfor %}
+            </select>
+            
+            <br><br>
+            <button type="submit">Return Book</button>
+        </form>
+    {% else %}
+        <p>No books to return.</p>
+    {% endif %}
+    
+    <a href="/user_dashboard" class="back-link">Back to Dashboard</a>
+
+</body>
+</html>

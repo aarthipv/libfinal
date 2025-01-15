@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Remove Book</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/end.png') no-repeat center center/cover, 
+                        linear-gradient(135deg, #f7f3f1, #c2b09b); /* Background with light neutral tones */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f7f3f1; /* Light neutral background */
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #7c5c4f; /* Warm neutral brown */
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Light background for form */
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        .form-container label {
+            font-size: 1.2em;
+            color: #7c5c4f; /* Warm brown */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-container select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #7c5c4f; /* Warm brown border */
+            border-radius: 5px;
+            background: #fff;
+            font-size: 1.1em;
+            color: #333;
+            background-position: right 10px center;
+            background-repeat: no-repeat;
+        }
+
+        .form-container select:focus {
+            border-color: #a2885f; /* Golden brown for focus */
+            outline: none;
+        }
+
+        .form-container button {
+            background: linear-gradient(135deg, #7c5c4f, #a2885f); /* Gradient button */
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            font-size: 1.3em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: linear-gradient(135deg, #a2885f, #e67e22); /* Darker gradient on hover */
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            color: #7c5c4f; /* Warm brown */
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #7c5c4f;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .form-container {
+                padding: 20px;
+                max-width: 400px;
+            }
+
+            .form-container button {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Remove a Book</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <label for="book_id">Select Book to Remove:</label>
+            <select name="book_id" id="book_id" required>
+                {% for book in books %}
+                    <option value="{{ book[0] }}">{{ book[1] }} by {{ book[2] }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Remove Book</button>
+        </form>
+    </div>
+
+    <div class="back-link">
+        <a href="/librarian_dashboard">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

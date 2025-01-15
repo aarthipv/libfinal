@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/user-bg.png') no-repeat center center/cover, 
+                        linear-gradient(135deg, #f7f3f1, #c2b09b); /* Background with light neutral tones */
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f7f3f1; /* Light neutral background */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #7c5c4f; /* Warm neutral brown */
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.9); /* Light background for form */
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-form h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #7c5c4f; /* Warm brown */
+        }
+
+        .login-form label {
+            font-size: 1.2em;
+            color: #7c5c4f; /* Warm brown */
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #7c5c4f; /* Warm brown border */
+            border-radius: 5px;
+            background: #fff;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .login-form input:focus {
+            border-color: #a2885f; /* Golden brown for focus */
+            outline: none;
+        }
+
+        .login-form button {
+            background: linear-gradient(135deg, #7c5c4f, #a2885f); /* Gradient button */
+            color: white;
+            padding: 14px;
+            border: none;
+            width: 100%;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background: linear-gradient(135deg, #a2885f, #e67e22); /* Darker gradient on hover */
+        }
+
+        .login-form p {
+            text-align: center;
+            color: #7c5c4f; /* Warm brown */
+            margin-top: 15px;
+        }
+
+        .login-form a {
+            color: #7c5c4f;
+            text-decoration: none;
+        }
+
+        .login-form a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7c5c4f; /* Warm brown */
+        }
+
+        footer p {
+            font-size: 0.9em;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .login-form {
+                padding: 20px;
+                max-width: 350px;
+            }
+
+            .login-form h2 {
+                font-size: 1.8em;
+            }
+
+            .login-form button {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+
+    <div class="login-form">
+        <h2>Register</h2>
+        <form action="/register" method="POST">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/user_login">Login here</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Library Management System</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/images/user-bg.png') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: #4a3f39; /* Soft brownish-gray text */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7f3f1; /* Light neutral background */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff; /* White background */
+            padding: 30px 40px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #7c5c4f; /* Warm neutral brown */
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background: rgba(255, 255, 255, 0.85); /* Light background */
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #7a5c62; /* Soft muted mauve */
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a2885f; /* Subtle golden brown */
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.85); /* Light semi-transparent background */
+            margin-top: 30px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 30px auto;
+            text-align: center;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        main h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #7c5c4f; /* Warm neutral brown */
+        }
+
+        main p {
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            color: #7a5c62; /* Soft muted mauve */
+        }
+
+        /* Button/Links in Main Section */
+        .dashboard-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .dashboard-buttons a {
+            background: #d8c6bb; /* Soft beige background */
+            padding: 15px 30px;
+            color: #4a3f39; /* Dark brown text */
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .dashboard-buttons a:hover {
+            background: #a2885f; /* Subtle golden brown */
+        }
+
+        /* Logout Link Styling */
+        .logout-link {
+            color: #7a5c62;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #fff; /* White background */
+            color: #4a3f39; /* Dark brown text */
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 1em;
+                margin: 0 15px;
+            }
+
+            main {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .dashboard-buttons {
+                flex-direction: column;
+            }
+
+            .dashboard-buttons a {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+
+    <main>
+        <h1>Welcome, {{ name }}</h1>
+        <p>Explore and manage your library actions with the available tools below.</p>
+
+        <!-- Buttons for Different Actions -->
+        <div class="dashboard-buttons">
+            <a href="/search_book">Search Books</a>
+            <a href="/borrow_book">Borrow Book</a>
+            <a href="/return_book">Return Book</a>
+            <a href="/overdue_books">Overdue Books</a>
+        </div>
+
+        <!-- Logout Link -->
+        <a href="/logout" class="logout-link">Logout</a>
+    </main>
+
+    <footer>
+        <p>©️ 2024 Library Management System</p>
+    </footer>
+
+</body>
+</html>
