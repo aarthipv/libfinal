@@ -6,11 +6,9 @@ The **Library Management System** is a web-based application designed to make li
 ---
 
 ## Team Members - Team 7
-- **Abhishek Hosmani** - Project Head [https://github.com/ABHI10-GT3]
-- **Harshita Purohit** - Feature Implementation [https://github.com/purohitharshita]
-- **Ifrah Naaz** - Feature Implementation [https://github.com/ifrahnz26]
-- **Joshua Leo** - Reviewer [https://github.com/Joshualeo257]
-- **Nandita Nayak** - Documentation Head [https://github.com/NanditaNayakk]
+- **Aarthi pv** - Project Head [https://github.com/aarthipv]
+- **Anushka Rahul Patil** - Feature Implementation [https://github.com/Anushka0909]
+- **Anirudh S Rai** - Feature Implementation [https://github.com/AnirudhRa1]
 
 ---
 
@@ -24,25 +22,6 @@ The **Library Management System** is a web-based application designed to make li
 - **Manage Books**: Add, update, or remove books from the library.
 - **Manage Users**: View user details and their current borrowed books.
 - **Overdue Tracking**: Monitor overdue books and send reminders.
-
----
-
-## Screenshots
-<img src="https://github.com/user-attachments/assets/a42a5b69-b148-43eb-a341-f729f870c57c" alt="Example Image" style="width:400px; height:250px;">
-<img src="https://github.com/user-attachments/assets/99c3442b-a9f5-4bd6-8969-ecee8efda245" alt="Example Image" style="width:400px; height:250px;">
-<img src="https://github.com/user-attachments/assets/1c9e8272-2da7-43f0-bc33-e54d5c454bbf" alt="Example Image" style="width:400px; height:250px;">
-<img src="https://github.com/user-attachments/assets/ae78744a-f672-41a9-8bf4-08a57e860bfc" alt="Example Image" style="width:400px; height:250px;">
-<img src="https://github.com/user-attachments/assets/8bef4895-1f04-4216-b007-32bc7454e1b5" alt="Example Image" style="width:400px; height:250px;">
-<img src="https://github.com/user-attachments/assets/0e62ff14-78f9-42a2-aa5c-07a97455e629" alt="Example Image" style="width:400px; height:250px;">
-
----
-
-## Technologies Used
-- **Frontend**: HTML, CSS
-- **Backend**: Flask (Python)
-- **Database**: MySQL
-- **Tools**: Virtual Environment (venv), VS Code
-- **Deployment**: Localhost
 
 ---
 
@@ -135,10 +114,5 @@ library-management-system/
 
 ## Contributing
 We welcome contributions! Please refer to the `CONTRIBUTING.md` file for detailed guidelines.
-
----
-
-## License
-This project is licensed under the MIT License.
 
 ---
