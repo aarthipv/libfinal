@@ -14,12 +14,10 @@ app.config['MYSQL_DB'] = 'library_db'
 
 mysql = MySQL(app)
 
-# Home Route
 @app.route('/')
 def home():
     return render_template('home.html')
 
-# Librarian Login
 @app.route('/librarian_login', methods=['GET', 'POST'])
 def librarian_login():
     if request.method == 'POST':
@@ -39,7 +37,6 @@ def librarian_login():
             flash('Invalid credentials!', 'danger')
     return render_template('librarian_login.html')
 
-# Librarian Dashboard
 @app.route('/librarian_dashboard')
 def librarian_dashboard():
     if 'librarian_id' in session:
