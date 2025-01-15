@@ -1,0 +1,288 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and General Layout */
+body {
+    background-color: #f0f8ff; /* Light Blue */
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #007BFF; /* Blue */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Form Elements */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form input, form select, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Darker Blue */
+}
+
+/* Flash Messages */
+.flash {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.flash.success {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.flash.danger {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+.flash.info {
+    background-color: #17a2b8; /* Info Blue */
+    color: white;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #0056b3; /* Dark Blue */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dashboard .card {
+    background-color: #fff;
+    width: 30%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.dashboard .card h3 {
+    margin-bottom: 15px;
+}
+
+.dashboard .card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.dashboard .card a:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Input Fields */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], select, textarea {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+    border: 2px solid #007BFF;
+}
+
+/* Buttons */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Page-Specific Styles */
+header h1, .page-title {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+h2 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+/* Additional Styles for Pages */
+.page-content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.page-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.page-content ul li {
+    margin-bottom: 10px;
+}
+
+/* User and Librarian Specific Styles */
+.user-dashboard, .librarian-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.user-dashboard .card, .librarian-dashboard .card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    width: 30%;
+}
+
+.card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.card a:hover {
+    background-color: #0056b3;
+}
+
+/* Register Page Styles */
+.register-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.register-form input[type="text"], .register-form input[type="email"], .register-form input[type="password"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .dashboard .card, .user-dashboard .card, .librarian-dashboard .card {
+        width: 100%;
+    }
+
+    .register-form {
+        width: 100%;
+    }
+}
